@@ -1,0 +1,9 @@
+.button {
+    position: relative;
+    border-radius: var(--b-radius); 
+    border: none;
+    color: var(--font-white);
+    mix-blend-mode: difference;
+    min-width: 15ch;
+    height: 32px;
+}

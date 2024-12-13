@@ -14,3 +14,7 @@
 .input-field--large {
     max-width: 196px;
 }
+
+.input-field--max {
+    width: 100%;    
+}

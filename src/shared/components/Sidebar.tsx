@@ -7,21 +7,15 @@ export const Sidebar = () => {
   const listItems: ListItem[] = [
     {
       key: routes.Home,
-      element: (
-        <LinkComponent
-          label="Hem"
-          to={routes.Home}
-          key={routes.Home + ':link'}
-        />
-      )
+      element: <LinkComponent label="Hem" to={routes.Home} key={routes.Home} />
     },
     {
-      key: routes.Home,
+      key: routes.Calculator,
       element: (
         <LinkComponent
           label="Lånekalkyl"
           to={routes.Calculator}
-          key={routes.Calculator + ':link'}
+          key={routes.Calculator}
         />
       )
     }

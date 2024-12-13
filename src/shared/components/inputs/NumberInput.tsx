@@ -6,20 +6,24 @@ import { Text } from '../typography/Text'
 interface NumberInputProps {
   value: number
   label: string
-  debounceDelay?: number
-  placeholder?: string
-  size?: 'small' | 'medium' | 'large'
+  size?: 'small' | 'medium' | 'large' | 'max'
   name: string
-  searchOptions?: string[]
+  inputType?: 'default' | 'range'
+  min?: number
+  max?: number
+  step?: number
   onChange: (value: number) => void
 }
 
 export const NumberInputComponent = ({
   value,
-  placeholder,
   size,
   label,
   name,
+  inputType,
+  min,
+  max,
+  step,
   onChange
 }: NumberInputProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,16 +33,17 @@ export const NumberInputComponent = ({
   return (
     <div className="number-field__container">
       <label htmlFor={name}>
-        <Text text={label} size="medium" />
+        <Text text={label} size="small" />
       </label>
       <input
+        step={step}
+        min={min}
+        max={max}
+        type={inputType ?? 'default'}
         className={`input-field input-field--${size ?? 'large'}`}
-        type="search"
-        list="pokemon-list"
         name={name}
         value={value}
         onChange={handleChange}
-        placeholder={placeholder}
       />
     </div>
   )

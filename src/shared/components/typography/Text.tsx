@@ -7,7 +7,9 @@ interface TextProps {
 }
 export const Text = ({ text, type = 'default', size = 'small' }: TextProps) => {
   return (
-    <span className={`text__container text--${size} text--${type}`}>
+    <span
+      className={`text__container text--${size} text--${type} text-w--heavy `}
+    >
       {text}
     </span>
   )

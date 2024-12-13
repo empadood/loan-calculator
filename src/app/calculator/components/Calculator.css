@@ -1,0 +1,12 @@
+.calculator__footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;    
+}
+
+.calculator__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: clamp(150px, 50%, 500px);
+}

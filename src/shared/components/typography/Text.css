@@ -1,5 +1,5 @@
 .text__container {
-    color: var(--c-primary)
+    color: var(--font-light)
 }
 
 .text--error {
@@ -15,5 +15,5 @@
 }
 
 .text--small {
-    font-size: 0.75rem
+    font-size: 0.8rem
 }
