@@ -1,19 +1,23 @@
 .text__container {
-    color: var(--font-light)
+  color: var(--font-light);
 }
 
 .text--error {
-    color: var(--c-error)
+  color: var(--c-error);
+}
+
+.text--white {
+  color: var(--font-white);
 }
 
 .text--large {
-    font-size: 1.5rem
+  font-size: 1.5rem;
 }
 
 .text--medium {
-    font-size: 1rem
+  font-size: 1rem;
 }
 
 .text--small {
-    font-size: 0.8rem
+  font-size: 0.8rem;
 }

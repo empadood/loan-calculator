@@ -1,35 +1,55 @@
 :root {
-    --c-primary: #1EC887;
-    --c-secondary: #582F87;    
-    
-    --c-background: rgba(0, 0, 0, 0);
-    --c-error: #FF0000;
+  --c-primary: #1ec887;
+  --c-secondary: #582f87;
 
-    --b-radius: 0.25rem;
-    --b-padding: 0.75rem;
+  --c-background: rgba(0, 0, 0, 0);
+  --c-error: #ff0000;
 
-    --font-white: #fff;
-    --font-default: rgba(0, 0, 0, 0.8);
-    --font-light: rgba(0, 0, 0, 0.6);
-    --font-lighter: rgba(0, 0, 0, 0.4);
+  --b-radius: 0.25rem;
+  --b-padding: 0.75rem;
+
+  --font-white: #fff;
+  --font-default: rgba(0, 0, 0, 0.8);
+  --font-light: rgba(0, 0, 0, 0.6);
+  --font-lighter: rgba(0, 0, 0, 0.4);
+}
+
+.text--white {
+  color: var(--font-white);
 }
 
 .text--default {
-    color: var(--font-default);
+  color: var(--font-default);
 }
 
 .text--light {
-    color: var(--font-light);
+  color: var(--font-light);
 }
 
 .text--lighter {
-    color: var(--font-lighter);
+  color: var(--font-lighter);
 }
 
 .text-w--heavy {
-    font-weight: 700;
+  font-weight: 700;
+}
+
+.text-w--normal {
+  font-weight: 500;
 }
 
 .text-w-light {
-    font-weight: 300;
+  font-weight: 300;
+}
+
+.text-s--large {
+  font-size: 1.5rem;
+}
+
+.text-s--medium {
+  font-size: 1rem;
+}
+
+.text-s--small {
+  font-size: 0.8rem;
 }

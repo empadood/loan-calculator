@@ -2,7 +2,7 @@ import './Text.css'
 
 interface TextProps {
   text: string
-  type?: 'default' | 'success' | 'error' | 'warning'
+  type?: 'default' | 'success' | 'error' | 'warning' | 'white'
   size?: 'small' | 'medium' | 'large'
 }
 export const Text = ({ text, type = 'default', size = 'small' }: TextProps) => {

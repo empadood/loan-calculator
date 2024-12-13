@@ -6,6 +6,7 @@
 
 .calculator__content {
     display: flex;
+    position: relative;
     flex-direction: column;
     gap: 1rem;
     width: clamp(150px, 50%, 500px);
