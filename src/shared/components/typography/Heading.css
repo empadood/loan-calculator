@@ -1,0 +1,31 @@
+.heading {  
+    color: var(--c-primary);
+    margin: 0;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+h1.heading {
+    font-size: 2rem;
+}
+
+h2.heading {
+    font-size: 1.75rem;
+}
+
+h3.heading {
+    font-size: 1.5rem;
+}
+
+h4.heading {
+    font-size: 1.25rem;
+}
+
+h5.heading {
+    font-size: 1rem;
+}
+
+h6.heading {
+    font-size: 0.75rem;
+}

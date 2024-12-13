@@ -1,0 +1,10 @@
+.unordered-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-transform: capitalize;
+}
+
+.unordered-list li {
+    margin: 0.25rem 0;
+}

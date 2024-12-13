@@ -1,0 +1,12 @@
+.link--color {
+    color: var(--c-primary);
+    text-decoration: none;
+}
+
+.link:hover {
+    filter: brightness(85%);
+}
+
+.link:active {
+    filter: brightness(65%);
+}

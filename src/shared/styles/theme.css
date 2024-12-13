@@ -1,0 +1,10 @@
+:root {
+    --c-primary: #1EC887;
+    --c-secondary: #582F87;    
+    --c-text-color: rgba(255, 255, 255, 1);
+    --c-background: #2E3D44;
+    --c-error: #FF0000;
+
+    --b-radius: 0rem;
+    --b-padding: 0.75rem;
+}

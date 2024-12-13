@@ -1,0 +1,16 @@
+.input-field {
+    height: 32px;
+    border-radius: var(--b-radius);
+}
+
+.input-field--small {
+    max-width: 100px;
+}
+
+.input-field--medium {
+    max-width: 148px;
+}
+
+.input-field--large {
+    max-width: 196px;
+}
