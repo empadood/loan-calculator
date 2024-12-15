@@ -29,7 +29,6 @@ const calculateMonthlyCost = (loan: Loan): MonthlyCost => {
   const numerator = loan.amount * monthlyInterestRate * ( Math.pow(1 + monthlyInterestRate, loan.durationInYears * YEAR))
   const denominator = Math.pow(1 + monthlyInterestRate, loan.durationInYears * YEAR) - 1
 
-
   return {
     monthlyCost: numerator / (denominator !== 0 ? denominator : 1),      
     monthyInterest: monthlyInterestRate
@@ -44,7 +43,8 @@ const formatCost = (cost: number) => Intl.NumberFormat('sv-SE', {
   maximumFractionDigits: 0
 }).format(cost)
 
+const replaceCurrencyWithCode = (cost: string) => cost.replace('kr', 'SEK')
 
 const buildLoanApplcationQuery = (loan: Loan) => `/loan-application/?amount=${loan.amount}&months=${loan.durationInYears * YEAR}`
 
-export { amountConfig, durationConfig, calculateMonthlyCost, formatCost, buildLoanApplcationQuery}
+export { amountConfig, durationConfig, calculateMonthlyCost, formatCost, buildLoanApplcationQuery, replaceCurrencyWithCode}

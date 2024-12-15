@@ -1,11 +1,14 @@
-import { formatCost } from '../services/calulator-service'
+import {
+  formatCost,
+  replaceCurrencyWithCode
+} from '../services/calulator-service'
 import './MonthyCostExample.css'
 
 interface ExampleProps {
   cost: number
 }
 export const MonthyCostExample = ({ cost }: ExampleProps) => {
-  const displayValue = `${formatCost(cost)} / mån`
+  const displayValue = `${replaceCurrencyWithCode(formatCost(cost))} / mån`
 
   return (
     <div className="example__container">

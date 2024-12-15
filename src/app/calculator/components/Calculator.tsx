@@ -3,37 +3,24 @@ import { useState } from 'react'
 import './Calculator.css'
 import {
   amountConfig,
-  calculateMonthlyCost,
   durationConfig,
   formatCost
 } from '../services/calulator-service'
 
 import { MonthyCostExample } from './MonthyCostExample'
 import { Loan } from '../models/loan'
-import { MonthlyCost } from '../models/monthly-cost'
 import { Popover } from 'src/shared/components/popover/Popover'
 import { NumberInputComponent } from 'src/shared/components/inputs/NumberInput'
 import { PrimaryButton } from 'src/shared/components/buttons/PrimaryButton'
+import { useCostState } from '../hooks/useCost'
 
 interface CalculatorProps {
   onApplyForLoan: (loan: Loan) => void
 }
 export const CalculatorComponent = ({ onApplyForLoan }: CalculatorProps) => {
-  const [loan, setLoan] = useState<Loan>(() => ({
-    amount: amountConfig.min,
-    durationInYears: durationConfig.min
-  }))
-  const [cost, setCost] = useState<MonthlyCost>(() => ({
-    monthlyCost: 0,
-    monthyInterest: 0
-  }))
+  const { loan, cost, onChange } = useCostState()
 
   const [showPopover] = useState(true)
-
-  const onChange = (loan: Loan) => {
-    setCost(calculateMonthlyCost(loan))
-    setLoan(loan)
-  }
 
   return (
     <div className="calculator__content">
