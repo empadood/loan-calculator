@@ -1,7 +1,7 @@
-import { ListItem } from '../models/list-item.interface'
-import { routes } from '../routes/routes'
-import { LinkComponent } from './links/LinkComponent'
-import { UnorderedList } from './lists/UnorderedList'
+import { ListItem } from 'src/shared/models/list-item.interface'
+import { routes } from 'src/shared/routes/routes'
+import { LinkComponent } from '../links/LinkComponent'
+import { UnorderedList } from '../lists/UnorderedList'
 
 export const Sidebar = () => {
   const listItems: ListItem[] = [

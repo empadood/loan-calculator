@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import './App.css'
 
-import { Sidebar } from './shared/components/Sidebar'
+import { Sidebar } from './shared/components/sidebar/Sidebar'
 import { Heading } from './shared/components/typography/Heading'
 
 function App() {
