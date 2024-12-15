@@ -11,7 +11,7 @@ function App() {
         <Sidebar />
       </aside>
       <header id="header">
-        <Heading text={'Big bank'} type="h1" />
+        <Heading text={'Beräkna lån'} type="h1" />
       </header>
       <main id="main">
         <Outlet />

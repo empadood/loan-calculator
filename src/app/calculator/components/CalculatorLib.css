@@ -9,6 +9,5 @@
   position: relative;
   flex-direction: column;
   gap: 2rem;
-  padding: 0.5rem;
   width: clamp(380px, 50%, 500px);
 }

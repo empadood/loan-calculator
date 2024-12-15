@@ -45,12 +45,16 @@ const router = createBrowserRouter([
             <CalculatorWithLib />
           </Suspense>
         )
+      },
+      {
+        path: '',
+        element: <Navigate to={routes.Calculator} />
       }
     ]
   },
   {
     path: '*',
-    element: <Navigate to={routes.Home} />
+    element: <Navigate to={routes.Calculator} />
   }
 ])
 
