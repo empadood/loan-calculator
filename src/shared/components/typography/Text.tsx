@@ -1,7 +1,7 @@
 import './Text.css'
 
 interface TextProps {
-  text: string
+  text: string | number
   type?: 'default' | 'error' | 'white' | 'primary' | 'secondary'
   size?: 'small' | 'medium' | 'large'
 }

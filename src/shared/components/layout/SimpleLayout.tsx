@@ -13,7 +13,7 @@ export const SimpleSection = ({
     <section className="simple-layout__container">
       {header}
       {content}
-      {footer}
+      <div className="simple-layout__footer">{footer}</div>
     </section>
   )
 }

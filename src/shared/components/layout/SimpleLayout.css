@@ -6,3 +6,7 @@
   gap: 4rem;
   overflow-y: auto;
 }
+
+.simple-layout__footer {
+  max-width: 60ch;
+}

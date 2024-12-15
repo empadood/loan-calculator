@@ -1,12 +1,10 @@
 import { useRef, useState } from 'react'
 import { useRanger, Ranger } from '@tanstack/react-ranger'
 import { Text } from '../typography/Text'
-import styled from 'styled-components'
-import { css } from 'styled-components'
-import { theme } from 'src/shared/styles/theme'
 
 import './Inputs.css'
 import './RangeSlider.css'
+import { Track, Segment, Handle } from './RangerSliderElements'
 
 interface RangeSliderProps {
   value: number
@@ -20,64 +18,6 @@ interface RangeSliderProps {
   onChange: (value: number) => void
   valueFormatter?: (value: number) => string
 }
-
-export const Track = styled('div')`
-  height: 8px;
-  width: 90%;
-  position: relative;
-  userselect: none;
-  height: 4px;
-  width: 100%;
-  background: #ddd;
-  boxshadow: inset 0 1px 2px rgba(0, 0, 0, 0.6);
-  borderradius: 2px;
-`
-
-export const Segment = styled('div')<{
-  index: number
-  left: number
-  width: number
-}>`
-  position: absolute;
-  background: ${(props) => css`
-    ${props.index === 0 ? theme.secondaryColor : theme.white};
-  `};
-  left: ${(props) => `${props.left}%`};
-  height: 100%;
-  border: 1px solid grey;
-  height: 16px;
-  top: -4px;
-  border-radius: 12px;
-  width: ${(props) => `${props.width}%`};
-`
-export const Handle = styled('button')<{
-  left: number
-}>`
-  position: absolute;
-  left: ${(props) => css`
-    ${props.left}%
-  `};
-  zIndex: isActive ? 1 : 0;
-  appearance: none;
-  border: none;
-  outline: none;
-  background: ${theme.secondaryColor};
-  outline: 2px solid white;
-  display: flex;
-  top: -10px;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 100%;
-  font-size: 0.7rem;
-  white-space: nowrap;
-  color: white;  
-  transform: (props: { active: boolean }) =>
-    props.active
-      ? 'translate(-50%, -100%) scale(1.3)'
-      : 'translate(-50%, -50%) scale(0.9)';
-`
 
 export const RangeSlider = ({
   min = 0,
@@ -105,7 +45,7 @@ export const RangeSlider = ({
   })
 
   const getOffsetDueToLengthOfValue = (value: number) =>
-    value > 1000 ? '-10ch' : '-8ch'
+    value > 1000 ? '-10ch' : '-6ch'
 
   return (
     <div className="range-slider__container">
@@ -115,15 +55,19 @@ export const RangeSlider = ({
       <Track
         ref={rangerRef}
         className={`input-field input-field--${size ?? 'large'}`}
-        style={{
-          position: 'relative',
-          userSelect: 'none',
-          height: '4px',
-          background: '#ddd',
-          boxShadow: 'inset 0 1px 2px rgba(0,0,0,.6)',
-          borderRadius: '2px'
-        }}
       >
+        <div
+          className="range-slider-max-value"
+          style={{
+            visibility: values[0] >= 0.8 * max ? 'hidden' : 'visible'
+          }}
+        >
+          {valueFormatter && max ? (
+            valueFormatter(max)
+          ) : (
+            <>{`${max} ${maxSuffix}`}</>
+          )}
+        </div>
         {rangerInstance.getSteps().map(({ left, width }, i) => (
           <Segment key={i} index={i} left={left} width={width} />
         ))}
@@ -149,7 +93,7 @@ export const RangeSlider = ({
                   style={{
                     position: 'absolute',
                     left: getOffsetDueToLengthOfValue(value),
-                    top: '8px'
+                    top: '12px'
                   }}
                 >
                   {valueFormatter ? (
