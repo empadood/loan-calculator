@@ -7,7 +7,7 @@ interface PopoverProps {
   offsetY?: number
   offsetX?: number
   visible?: boolean
-  onOutsideClick: () => void
+  onOutsideClick?: () => void
 }
 
 export const Popover = ({
@@ -24,7 +24,8 @@ export const Popover = ({
   const handleClickOutside = (event: MouseEvent) => {
     if (
       popoverRef.current &&
-      !popoverRef.current.contains(event.target as Node)
+      !popoverRef.current.contains(event.target as Node) &&
+      onOutsideClick
     ) {
       onOutsideClick()
     }

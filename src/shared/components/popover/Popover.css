@@ -12,5 +12,5 @@
   border-style: solid;
   border-color: var(--c-secondary) transparent;
   width: 2px;
-  border-radius: 0 0 0 40px;
+  border-radius: 0;
 }

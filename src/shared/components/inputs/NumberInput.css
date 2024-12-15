@@ -1,4 +1,108 @@
 .number-field__container {
-    display: flex;
-    flex-direction: column;    
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Range input specific styling */
+input[type='range'] {
+  -webkit-appearance: none; /* Chrome, Safari, Edge, Opera */
+  -moz-appearance: none; /* Firefox */
+  background: transparent; /* Otherwise white in Chrome */
+  appearance: none;
+  height: 24px;
+  background: white;
+  border-radius: 12px;
+  background-color: white;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+
+input[type='range']:hover {
+  opacity: 1;
+}
+
+/* WebKit browsers (Chrome, Safari, Edge, Opera) */
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 32px;
+  height: 32px;
+  background: var(--c-secondary);
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid white;
+  margin-top: -4px;
+}
+
+/* Mozilla browsers (Firefox) */
+input[type='range']::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background: var(--c-secondary);
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  height: 24px;
+  cursor: pointer;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+input[type='range']::-moz-range-track {
+  height: 100%;
+  cursor: pointer;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+input[type='range']::-moz-range-progress {
+  background: var(--c-secondary);
+  height: inherit;
+  border-radius: 12px 12px 12px 12px;
+}
+
+.range-input__wrapper {
+  position: relative;
+}
+
+.range-thumb-value {
+  position: absolute;
+  height: inherit;
+  top: 0;
+  pointer-events: none;
+  color: white;
+  z-index: 100;
+  padding: 4px;
+  background-color: inherit;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  transform: translateX(-40px);
+}
+
+.range-max-value {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--font-light);
+  pointer-events: none;
+  background-color: inherit;
+  padding: 4px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 1;
+}
+
+/* For all browsers except Firefox */
+@supports not (-moz-appearance: none) {
+  .range-thumb-value {
+    color: var(--font-dark) !important;
+  }
 }

@@ -1,20 +1,24 @@
 import { useState } from 'react'
-import { NumberInputComponent } from '../../../shared/components/inputs/NumberInput'
-
-import { PrimaryButton } from '../../../shared/components/buttons/PrimaryButton'
 
 import './Calculator.css'
 import {
   amountConfig,
   calculateMonthlyCost,
-  durationConfig
+  durationConfig,
+  formatCost
 } from '../services/calulator-service'
-import { Popover } from '../../../shared/components/popover/Popover'
-import { Example } from './Example'
+
+import { MonthyCostExample } from './MonthyCostExample'
 import { Loan } from '../models/loan'
 import { MonthlyCost } from '../models/monthly-cost'
+import { Popover } from 'src/shared/components/popover/Popover'
+import { NumberInputComponent } from 'src/shared/components/inputs/NumberInput'
+import { PrimaryButton } from 'src/shared/components/buttons/PrimaryButton'
 
-export const CalculatorComponent = () => {
+interface CalculatorProps {
+  onApplyForLoan: (loan: Loan) => void
+}
+export const CalculatorComponent = ({ onApplyForLoan }: CalculatorProps) => {
   const [loan, setLoan] = useState<Loan>(() => ({
     amount: amountConfig.min,
     durationInYears: durationConfig.min
@@ -31,19 +35,14 @@ export const CalculatorComponent = () => {
     setLoan(loan)
   }
 
-  const onOutSideClick = () => {
-    return
-  }
-
   return (
     <div className="calculator__content">
       <Popover
-        targetId="example-popover"
-        content={<Example cost={cost.monthlyCost} />}
+        targetId="popover"
+        content={<MonthyCostExample cost={cost.monthlyCost} />}
         offsetX={0}
         offsetY={-90}
         visible={showPopover}
-        onOutsideClick={onOutSideClick}
       >
         <NumberInputComponent
           label="Lånebelopp"
@@ -51,10 +50,12 @@ export const CalculatorComponent = () => {
           onChange={(value) => onChange({ ...loan, amount: value })}
           value={loan.amount}
           size="max"
+          maxSuffix="kr"
           inputType="range"
           min={amountConfig.min}
           max={amountConfig.max}
           step={amountConfig.step}
+          valueFormatter={formatCost}
         />
       </Popover>
 
@@ -63,6 +64,7 @@ export const CalculatorComponent = () => {
         name="loanDuration"
         size="max"
         inputType="range"
+        maxSuffix="år"
         min={durationConfig.min}
         max={durationConfig.max}
         step={durationConfig.step}
@@ -70,13 +72,11 @@ export const CalculatorComponent = () => {
         value={loan.durationInYears}
       />
       <div className="calculator__footer">
-        <PrimaryButton label="Till Ansökan" />
+        <PrimaryButton
+          label="Till ansökan"
+          onClick={() => onApplyForLoan(loan)}
+        />
       </div>
-
-      <div>current loan amount: {loan.amount}</div>
-      <div>current loan duration: {loan.durationInYears}</div>
-      <div>monthly cost: {cost.monthlyCost}</div>
-      <div>monthly interest: {cost.monthyInterest}</div>
     </div>
   )
 }
