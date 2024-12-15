@@ -10,6 +10,14 @@
   color: var(--font-white);
 }
 
+.text--primary {
+  color: var(--c-primary);
+}
+
+.text--secondary {
+  color: var(--c-secondary);
+}
+
 .text--large {
   font-size: 1.5rem;
 }

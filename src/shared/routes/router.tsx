@@ -15,6 +15,16 @@ const Calculator = lazy(async () => {
   }
 })
 
+const CalculatorWithLib = lazy(async () => {
+  return {
+    default: (
+      await import(
+        /*webpackChunkName: 'CalculatorWithLib' */ '../../app/calculator/views/CalculatorWithLibrary'
+      )
+    ).CalculatorWithLibView
+  }
+})
+
 const router = createBrowserRouter([
   {
     path: '',
@@ -25,6 +35,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback="Loading">
             <Calculator />
+          </Suspense>
+        )
+      },
+      {
+        path: routes.CalculatorWithLib,
+        element: (
+          <Suspense fallback="Loading">
+            <CalculatorWithLib />
           </Suspense>
         )
       }

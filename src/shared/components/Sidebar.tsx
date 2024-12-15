@@ -18,6 +18,16 @@ export const Sidebar = () => {
           key={routes.Calculator}
         />
       )
+    },
+    {
+      key: routes.CalculatorWithLib,
+      element: (
+        <LinkComponent
+          label="Lånekalkyl v2"
+          to={routes.CalculatorWithLib}
+          key={routes.CalculatorWithLib}
+        />
+      )
     }
   ]
   return <UnorderedList items={listItems} />

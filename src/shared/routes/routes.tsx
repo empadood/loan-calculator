@@ -1,4 +1,5 @@
 export const routes = {
   Home: '/',
-  Calculator: '/calculator'
+  Calculator: '/calculator',
+  CalculatorWithLib: '/calculator-with-lib'
 } as const
